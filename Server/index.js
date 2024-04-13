@@ -18,7 +18,10 @@ mongoose.connect(`${process.env.DATABASE}`)
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors())
+app.use(cors({
+    origin:["https://manishlinkshortner.netlify.app"],
+    credentials:true
+}))
 
 app.post('/',async(req,res)=>{
    const {link,customUrl}=req.body;
