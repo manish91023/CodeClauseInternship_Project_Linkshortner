@@ -10,7 +10,7 @@ const Form = () => {
     //copy to clipboard
     const copyClipBoard=()=>{
        
-        navigator.clipboard.writeText(`https://linkshortner-wsnx.onrender.com/${shortUrl}`).then(res=>{
+        navigator.clipboard.writeText(`http://localhost:4000/${shortUrl}`).then(res=>{
           
             alert('link  copied to clipboard')
         })
@@ -23,7 +23,7 @@ const Form = () => {
     // qr generator 
     const qrGenerator=async()=>{
         try {
-            const QR=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://linkshortner-wsnx.onrender.com/${shortUrl}`;
+            const QR=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:5173/${shortUrl}`;
             setQr(QR)
         } catch (error) {
             alert("error in generating qr code")
@@ -34,7 +34,7 @@ const Form = () => {
     const onsubmit=async(e)=>{
         e.preventDefault();
         try {
-            const data = await Axios.post('https://linkshortner-wsnx.onrender.com/',{customUrl,link})
+            const data = await Axios.post('http://localhost:4000/',{customUrl,link})
             console.log(data)
             setShortUrl(data.data.shortId)
             setCustomUrl('')
@@ -62,7 +62,7 @@ const Form = () => {
             </form>
                 <div >
 
-                {shortUrl?<><h1 className=' text-white'>{`https://linkshortner-wsnx.onrender.com/${shortUrl}`}</h1>
+                {shortUrl?<><h1 className=' text-white'>{`http://localhost:4000/${shortUrl}`}</h1>
                 <div className=' flex justify-center '>
                     <button onClick={copyClipBoard} className=' bg-green-500 w-[110px] h-[70px] rounded-lg mx-2'>Copy Link</button>
                     <button onClick={qrGenerator} className=' bg-orange-500 w-[110px] h-[70px] rounded-lg'>Generate QR</button>

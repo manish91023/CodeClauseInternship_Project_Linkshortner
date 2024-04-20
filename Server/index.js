@@ -1,6 +1,6 @@
 require('dotenv').config()
 const express = require("express")
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 const app = express();
 const mongoose = require("mongoose")
 const shortId = require('shortid')
@@ -19,7 +19,7 @@ mongoose.connect(`${process.env.DATABASE}`)
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors({
-    origin: 'https://manishlinkshortner.netlify.app', // Specify the origin you want to allow
+    origin: 'http://localhost:5173', // Specify the origin you want to allow
     methods: ['GET', 'POST'], // Specify the methods you want to allow
     credentials: true, // Allow cookies to be sent with requests
 }));
