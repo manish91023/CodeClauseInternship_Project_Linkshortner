@@ -23,7 +23,7 @@ const Form = () => {
     // qr generator 
     const qrGenerator=async()=>{
         try {
-            const QR=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://manishlinkshortner.netlify.app/${shortUrl}`;
+            const QR=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://codeclauseinternship-project-linkshortner.onrender.com/${shortUrl}`;
             setQr(QR)
         } catch (error) {
             alert("error in generating qr code")
