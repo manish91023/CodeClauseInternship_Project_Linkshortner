@@ -19,7 +19,7 @@ mongoose.connect(`${process.env.DATABASE}`)
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors({
-    origin: 'http://localhost:5173', // Specify the origin you want to allow
+    origin: 'https://manishlinkshortner.netlify.app', // Specify the origin you want to allow
     methods: ['GET', 'POST'], // Specify the methods you want to allow
     credentials: true, // Allow cookies to be sent with requests
 }));
